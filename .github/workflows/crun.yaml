@@ -15,7 +15,7 @@ jobs:
       run: |
         mkdir -p /tmp/crun
         git clone https://github.com/containers/crun/ /tmp/crun
-        cp crun/crun.nix /tmp/crun
+        cp crun/crun.nix /tmp/crun/nix/crun.nix
     - name: Build crun
       run: |
         cd /tmp/crun/nix
