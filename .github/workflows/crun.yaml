@@ -14,12 +14,12 @@ jobs:
     - name: Clone crun repo to random directory
       run: |
         mkdir -p /tmp/crun
-        git clone https://github.com/containers/crun/ /tmp/crun
+        git clone --recursive https://github.com/containers/crun/ /tmp/crun
         cp crun/crun.nix /tmp/crun/nix/crun.nix
     - name: Build crun
       run: |
-        cd /tmp/crun/nix
-        nix-build crun.nix
+        cd /tmp/crun/
+        nix build -f nix/
     - name: Upload crun
       uses: actions/upload-artifact@v2
       with:
